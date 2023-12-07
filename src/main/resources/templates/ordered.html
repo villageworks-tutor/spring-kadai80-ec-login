@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.Thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>注文完了</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<!-- ヘッダー領域：ヘッダーのの読み込み -->
+	<th:block th:replace="~{parts/header}"></th:block>
+	<hr />
+	<main>
+		<article>
+			<h3>ご注文ありがとうございました</h3>
+			<p>お客様の注文番号は</p>
+			<h3 class="orderNo" th:text="${orderNo}"></h3>
+			<p>になります。</p>
+		</article>
+	</main>
+	<hr />
+	<!-- フッター領域：フッターの読み込み -->
+	<th:block th:replace="~{parts/footer}"></th:block>
+</body>
+</html>

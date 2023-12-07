@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.Thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cart</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<!-- ヘッダー領域：ヘッダーのの読み込み -->
+	<th:block th:replace="~{parts/header}"></th:block>
+	<hr />
+	<main>
+		<article>
+			<!-- カート詳細領域の読み込み -->
+			<th:block th:replace="cartItem"></th:block>
+			<form action="/order" method="get">
+				<button>注文する</button>
+			</form>
+		</article>
+	</main>
+	<hr />
+	<!-- フッター領域：フッターの読み込み -->
+	<th:block th:replace="~{parts/footer}"></th:block>
+</body>
+</html>
