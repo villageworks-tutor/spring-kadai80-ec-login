@@ -74,4 +74,10 @@ nav a:not(:first-child) {
   color: tomato;
 }
 
+/* エラーメッセージ */
+ul.error {
+  color: tomato;
+  list-style-type: none;
+}
+
 /*# sourceMappingURL=style.css.map */

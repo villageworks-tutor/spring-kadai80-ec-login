@@ -13,23 +13,26 @@
 	<main>
 		<article>
 			<h2>お客様情報</h2>
+			<ul class="error"  th:if="${errors}">
+				<li th:each="error:${errors}" th:text="${error}"></li>
+			</ul>
 			<form action="/account" method="post">
 			<table border="1">
 				<tr>
 					<th>お名前</th>
-					<td><input type="text" name="name" /></td>
+					<td><input type="text" name="name" th:value="${name}" /></td>
 				</tr>
 				<tr>
 					<th>住所</th>
-					<td><input type="text" name="address" /></td>
+					<td><input type="text" name="address" th:value="${address}" /></td>
 				</tr>
 				<tr>
 					<th>電話番号</th>
-					<td><input type="text" name="tel" /></td>
+					<td><input type="text" name="tel" th:value="${tel}" /></td>
 				</tr>
 				<tr>
 					<th>e-mail</the>
-					<td><input type="text" name="email" /></td>
+					<td><input type="text" name="email" th:value="${email}" /></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>
