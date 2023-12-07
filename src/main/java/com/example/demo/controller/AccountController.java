@@ -39,4 +39,11 @@ public class AccountController {
 		return "redirect:/items";
 	}
 	
+	// 会員登録画面表示
+	@GetMapping("/account")
+	public String create() {
+		// 画面遷移
+		return "accountForm";
+	}
+	
 }
