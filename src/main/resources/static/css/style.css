@@ -75,8 +75,11 @@ nav a:not(:first-child) {
 }
 
 /* エラーメッセージ */
-ul.error {
+.error {
   color: tomato;
+}
+
+ul.error {
   list-style-type: none;
 }
 

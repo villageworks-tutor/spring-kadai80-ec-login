@@ -38,10 +38,21 @@ public class AccountController {
 	// ログイン処理
 	@PostMapping("/login")
 	public String login(
-			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("password") String password,
 			Model model) {
+		// メールアドレスとパスワードが一致する顧客を取得
+		Customer customer = customerRepository.findByEmailAndPassword(email, password);
+		// ログイン認証：失敗した場合はログイン画面に戻る
+		if (customer == null) {
+			// 取得した顧客インスタンスがなかった場合：ログイン失敗
+			model.addAttribute("error", "メールアドレスとパスワードが一致しませんでした");
+			// 自画面遷移
+			return "login";
+		}
 		// セッションスコープに登録されているアカウント情報にリクエストパラメータを登録
-		account.setName(name);
+		account.setId(customer.getId());
+		account.setName(customer.getName());
 		// 画面遷移
 		return "redirect:/items";
 	}
