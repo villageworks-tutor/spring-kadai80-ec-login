@@ -15,6 +15,7 @@ import com.example.demo.entity.Customer;
 import com.example.demo.entity.Item;
 import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
+import com.example.demo.model.Account;
 import com.example.demo.model.Cart;
 import com.example.demo.repository.CustomerRepository;
 import com.example.demo.repository.OrderDetailRepository;
@@ -32,12 +33,18 @@ public class OrderController {
 	
 	@Autowired
 	Cart cart;
+	@Autowired
+	Account account;
 	
 	// 顧客情報入力画面表示
 	@GetMapping("/order")
-	public String index() {
-		// 画面遷移
-		return "customerForm";
+	public String index(Model model) {
+		// セッションスコープに登録されているアカウント情報の顧客IDをもとにログウインしている顧客インスタンスを取得
+		Customer customer = customerRepository.findById(account.getId()).get();
+		// 取得した顧客インスタンスをスコープに登録
+		model.addAttribute("customer", customer);
+		// 画面遷移：注文確認画面に直接遷移する理由を考えてみよう
+		return "orderConfirm";
 	}
 	
 	// 注文内容確認画面表示
