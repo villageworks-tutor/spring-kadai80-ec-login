@@ -80,9 +80,11 @@ nav {
 }
 
 /* エラーメッセージ */
+.error {
+	color: tomato;
+}
 ul {
 	&.error {
-		color: tomato;
 		list-style-type: none;
 	}
 }

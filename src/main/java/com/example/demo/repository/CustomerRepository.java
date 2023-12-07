@@ -12,4 +12,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	 */
 	Customer findByEmail(String email);
 
+	/**
+	 * メールアドレスとパスワードが一致する顧客を取得
+	 * SELECT * FROM customers WHERE email = ? AND password = ?
+	 */
+	Customer findByEmailAndPassword(String email, String password);
+
 }
